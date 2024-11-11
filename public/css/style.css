@@ -2,23 +2,15 @@ header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 
-.no-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
-  text-decoration: none;
-  font-size: 100%;
+body{
+ background-color:  #f8f9fa;
 }
 
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
-}
+.login{
+  margin-left: 20%;
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px;
+  box-shadow: -1px -1px 6px 0 rgb(122, 221, 102), 4px 4px 16px 2px rgb(92, 162, 235);
+  width: 100%;
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
 }
