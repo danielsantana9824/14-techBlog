@@ -2,7 +2,9 @@ const router = require('express').Router();
 const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+
 router.get('/', async (req, res) => {
+
   try {
     // Get all projects and JOIN with user data
     const postData = await Post.findAll({
@@ -55,7 +57,7 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      // include: [{ model: Post }],
+       include: [{ model: Post }],
     });
 
     const user = userData.get({ plain: true });
