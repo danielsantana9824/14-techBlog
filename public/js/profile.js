@@ -25,20 +25,12 @@ const newFormHandler = async (event) => {
 };
 
 const delButtonHandler = async (event) => {
-  console.log("fff");
-  
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
-
-    console.log(id);
-    
 
     const response = await fetch(`/api/posts/${id}`, {
       method: 'DELETE',
     });
-
-    console.log("response",response);
-    
 
     if (response.ok) {
       document.location.replace('/');
@@ -48,6 +40,48 @@ const delButtonHandler = async (event) => {
   }
 };
 
+async function editPostView(post) {
+
+  const response = await fetch(`/api/posts/${post}`);
+ 
+  if (response.ok) {
+    const post = await response.json();
+
+    document.getElementById("edit-id").value = post.id;
+    document.getElementById("edit-title").value = post.title;
+    document.getElementById("edit-desc").value = post.desc;
+    document.getElementById("edit-date").value = post.date.slice(0, 10);
+
+    const editModal = new bootstrap.Modal(document.getElementById("editModal"));
+    editModal.show();
+  } else {
+    alert("No se pudo cargar los datos del registro.");
+  }
+}
+
+ async function editPost(){
+  
+  const idPost = document.getElementById("edit-id").value;
+  const title = document.getElementById("edit-title").value;
+  const desc = document.getElementById("edit-desc").value;
+  const date = document.getElementById("edit-date").value;
+
+ const response = await fetch(`/api/posts/${idPost}`, {
+   method: "PUT",
+   body: JSON.stringify({ title, desc, date }),
+   headers: {
+     "Content-Type": "application/json"
+   }
+ });
+
+   if (response.ok) {
+     $('#editModal').modal('hide');
+     document.location.reload();
+   } else {
+     alert("Failed to update the post.");
+   }
+ }
+
 document
   .querySelector('.new-project-form')
   .addEventListener('submit', newFormHandler);
@@ -55,3 +89,4 @@ document
 document
   .querySelector('.project-list-try')
   .addEventListener('click', delButtonHandler);
+

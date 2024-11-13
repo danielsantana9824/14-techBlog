@@ -1,34 +1,34 @@
 <div class="row">
 
   {{!-- form to create a new post --}}
- <div class="col-sm-6">
-  <div class="card shadow-lg rounded p-4 mb-4" style="transform: translateZ(0); transition: transform 0.3s;">
-    <h3 class="card-title">Create a New Post:</h3>
+  <div class="col-sm-6">
+    <div class="card shadow-lg rounded p-4 mb-4" style="transform: translateZ(0); transition: transform 0.3s;">
+      <h3 class="card-title">Create a New Post:</h3>
 
-    <form class="form new-project-form">
-      <div class="form-group">
-        <label for="project-title">Title:</label>
-        <input class="form-control" type="text" id="project-title" name="project-title" />
-      </div>
+      <form class="form new-project-form">
+        <div class="form-group">
+          <label for="project-title">Title:</label>
+          <input class="form-control" type="text" id="project-title" name="project-title" />
+        </div>
 
-      <div class="form-group">
-        <label for="project-desc">Description:</label>
-        <textarea class="form-control" id="project-desc" name="project-desc"></textarea>
-      </div>
+        <div class="form-group">
+          <label for="project-desc">Description:</label>
+          <textarea class="form-control" id="project-desc" name="project-desc"></textarea>
+        </div>
 
-      <div class="form-group">
-        <label for="project-date">Select a date:</label>
-        <input type="date" class="form-control" id="project-date" name="project-date">
-      </div>
+        <div class="form-group">
+          <label for="project-date">Select a date:</label>
+          <input type="date" class="form-control" id="project-date" name="project-date">
+        </div>
 
-      <div class="form-group d-flex justify-content-center">
-        <button type="submit" class="btn btn-outline-primary">Create</button>
-      </div>
-    </form>
+        <div class="form-group d-flex justify-content-center">
+          <button type="submit" class="btn btn-outline-primary">Create</button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
 
-  {{!-- form to see post  --}}
+  {{!-- form to see post --}}
   <div class="col-sm-6">
     {{#if postArray.length}}
     <div class="col-md-12 project-list-try">
@@ -49,7 +49,9 @@
               <p><strong>Description:</strong> {{project.desc}}</p>
               <p>Created by {{project.user.name}} on {{format_date project.date}}</p>
 
-              <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+              <button class="btn btn-sm btn-outline-danger" data-id="{{project.id}}">DELETE</button>
+              <button type="button" class="btn btn-sm btn-outline-warning edit-btn" data-bs-toggle="modal" data-bs-target="#editModal" onclick="editPostView({{project.id}})">EDIT</button>
+
             </div>
           </div>
         </div>
@@ -60,6 +62,41 @@
   </div>
 </div>
 
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      
+      <div class="modal-body">
+        <form id="editForm">
+          <input type="hidden" id="edit-id">
+          <div class="mb-3">
+            <label for="edit-title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="edit-title" name="edit-title">
+          </div>
+          <div class="mb-3">
+            <label for="edit-desc" class="form-label">Description:</label>
+            <textarea class="form-control" id="edit-desc" name="edit-desc"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="edit-date" class="form-label">Select a date:</label>
+            <input type="date" class="form-control" id="edit-date" name="edit-date">
+          </div>
+        </form>
+      </div>
+      
+      <div class="modal-footer">
+        {{!-- <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button> --}}
+       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" onclick="editPost()" class="btn btn-outline-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

@@ -41,7 +41,6 @@ router.get('/login', (req, res) => {
 
 router.get('/dashboard',withAuth, async (req, res) => {
 
-console.log("req.params.id",req.session.user_id);
   try {
     // Get all projects and JOIN with user data
     const postData = await Post.findAll({
