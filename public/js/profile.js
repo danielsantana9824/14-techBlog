@@ -82,6 +82,10 @@ async function editPostView(post) {
    }
  }
 
+ function closeModal(){
+  document.location.reload();
+ }
+
 document
   .querySelector('.new-project-form')
   .addEventListener('submit', newFormHandler);
@@ -89,4 +93,3 @@ document
 document
   .querySelector('.project-list-try')
   .addEventListener('click', delButtonHandler);
-

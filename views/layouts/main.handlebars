@@ -25,17 +25,23 @@
 
           <div class="navbar-nav">
 
-            <a class="nav-link active" aria-current="page" href="./">Home</a>
-
             {{#if logged_in}}
+            <a class="nav-link active" aria-current="page" href="./">Home</a>
             <a class="nav-link active" aria-current="page" href="./dashboard">Dashboard</a>
             <a class="nav-link active" id="logout">logout</a>
             {{else}}
-            <a class="nav-link" href="/login">login</a>
+            {{!-- <a class="nav-link" href="/login">login</a> --}}
             {{/if}}
 
           </div>
         </div>
+
+         {{#unless logged_in}}
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="/login">Login</a>
+          <a class="nav-link" href="/login">Sing UP</a>
+        </div>
+        {{/unless}}
     </nav>
   </header>
   </div>
