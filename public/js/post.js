@@ -24,20 +24,16 @@ const newFormHandler = async (event) => {
   }
 };
 
-const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
-
+async function deleteDan(id)  {
     const response = await fetch(`/api/posts/${id}`, {
       method: 'DELETE',
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/dashboard');
     } else {
       alert('Failed to delete posts');
     }
-  }
 };
 
 async function editPostView(post) {
@@ -90,6 +86,6 @@ document
   .querySelector('.new-project-form')
   .addEventListener('submit', newFormHandler);
 
-document
-  .querySelector('.project-list-try')
-  .addEventListener('click', delButtonHandler);
+// document
+//   .querySelector('.project-list-try')
+//   .addEventListener('click', delButtonHandler);

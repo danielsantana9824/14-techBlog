@@ -53,7 +53,6 @@ router.get('/dashboard',withAuth, async (req, res) => {
       ],
     });
 
-
     // Serialize data so the template can read it
     const postArray = postData.map((post) => post.get({ plain: true }));
     
@@ -66,5 +65,10 @@ router.get('/dashboard',withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get('/signup',withAuth, (req, res) => {
+  res.render('signup');
+});
+
 
 module.exports = router;
