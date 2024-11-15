@@ -1,19 +1,19 @@
 # 14-techBlog
 
 ## Description
-This project focus in 
+This project focuses on creating a CMS-style blog platform where developers can share insights, tutorials, and thoughts on technical concepts, recent advancements, and new technologies.
 
 ## Motivation
-The primary motivation for this project is to apply my knowledge of Object-Relational Mapping (ORM) and develop a comprehensive understanding of backend development.
+The primary motivation for this project is to apply my knowledge in creating a CMS-style blog, where developers and tech enthusiasts can easily post and share their expertise.
 
 ## Purpose
-This application is designed to provide a fully functional API that allows users to perform CRUD (Create, Read, Update, Delete) operations through tools like Insomnia.
+Developers spend much of their time creating new applications and debugging existing code, but another key aspect of their work involves sharing knowledge. This project provides a structured platform for writing and reading about technical topics, allowing developers to engage with each other on recent advancements and innovations in technology.
 
 ## Problem Solved
-The project addresses the need for a scalable backend solution to manage e-commerce operations efficiently.
+With an overwhelming amount of information available online, this project serves as a focused platform where developers of all skill levels can find curated content, tutorials, and discussions relevant to their field, all in one place.
 
 ## Lessons Learned
-Throughout this project, I enhanced my understanding of SQL and JavaScript, particularly in the context of class-based programming and API development.
+Through this project, I was able to apply my knowledge of building a CMS-style blog and gained experience in managing content and user interactions, enhancing my skills in full-stack development.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -24,8 +24,11 @@ Throughout this project, I enhanced my understanding of SQL and JavaScript, part
 - [How to Contribute](#how-to-contribute)
 - [Tests](#tests)
 
-## Repository
+## Repository and video 
 - **Code Repository:** [View the code on GitHub](https://github.com/danielsantana9824/challenge-14Mvc)
+- **Code video:**[View the video on Render](https://app.screencastify.com/v2/manage/videos/6Kfd9RdUk2BtxV1Yqwjn)
+- **live:**[View the video on Render](https://one4-techblog-0v7f.onrender.com)
+
 
 ## Installation
 To set up this project on your local machine, follow these steps:
