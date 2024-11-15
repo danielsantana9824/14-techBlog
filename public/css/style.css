@@ -14,3 +14,32 @@ body{
   width: 100%;
 
 }
+
+.comment-box {
+  background-color: #f8f9fa;
+  color: #343a40; 
+  padding: 10px;
+  border-radius: 8px;
+  margin: 5px 0;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-comment-btn {
+  border-color: #f8f9fa; 
+  color: #f8f9fa;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.add-comment-btn:hover {
+  background-color: #f8f9fa; 
+  color: #007bff; 
+}
+
+.comment-box {
+  background-color: #f8f9fa; 
+  color: #343a40; 
+  padding: 10px;
+  border-radius: 8px;
+  margin: 5px 0;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}

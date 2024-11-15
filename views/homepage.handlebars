@@ -1,13 +1,49 @@
-<!-- Loop over each object in the projects array -->
 {{#each projects as |project| }}
 <div class="d-flex justify-content-center">
   <div class="card text-white bg-primary mb-3" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">{{project.title}}</h5>
       <p class="card-text">{{project.desc}}</p>
-       <p>Created by {{project.user.name}} on {{format_date project.date}}</p>
+      <p>Created by {{project.user.name}} on {{format_date project.date}}</p>
+
+       <button type="button" class="btn btn-outline-light add-comment-btn" data-bs-toggle="modal" data-bs-target="#commentModal" data-id="{{project.id}}">
+          Add Comment
+        </button>
+      </div>
+    </div>
+
+    {{#each project.comments as |comment| }}
+    <div class="comment-box p-2 m-2 bg-light text-dark rounded">
+      <p><strong>{{comment.user.name}}:</strong> {{comment.comment}}</p>
+    </div>
+    {{/each}}
+
+  </div>
+</div>
+{{/each}}
+
+<div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="commentModalLabel">Add Comment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="commentForm">
+          <div class="mb-3">
+            <label for="commentText" class="form-label">Comment:</label>
+            <textarea class="form-control" id="commentText" required></textarea>
+          </div>
+          <input type="hidden" id="postId" name="post_id" value="">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-outline-primary" onclick="submitComment()">Submit Comment</button>
+      </div>
     </div>
   </div>
 </div>
 
-{{/each}}
+<script src="./js/comment.js"></script>
